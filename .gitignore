@@ -24,3 +24,9 @@ cmake-build-*/
 
 ### VS Code ###
 .vscode/
+
+### VS Studio ###
+.vs/
+[Dd]ebug/
+*.user
+*.sln.docstates
