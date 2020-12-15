@@ -6,23 +6,23 @@
 using namespace std;
 #define V 4
  
-// симплекс-метод для решения задачи о коммивояжере
+//  СЃРёРјРїР»РµРєСЃ-РјРµС‚РѕРґ РґР»СЏ СЂРµС€РµРЅРёСЏ Р·Р°РґР°С‡Рё Рѕ РєРѕРјРјРёРІРѕСЏР¶РµСЂРµ
 int travllingSalesmanProblem(int graph[][V], int s)
 {
-    // храним все вершины кроме исходной
+    // С…СЂР°РЅРёРј РІСЃРµ РІРµСЂС€РёРЅС‹ РєСЂРѕРјРµ РёСЃС…РѕРґРЅРѕР№
     vector<int> vertex;
     for (int i = 0; i < V; i++)
         if (i != s)
             vertex.push_back(i);
  
-    // храним гамильтонов цикл минимального веса
+    // СЃРѕС…СЂР°РЅСЏРµРј РіР°РјРёР»СЊС‚РѕРЅРѕРІ С†РёРєР» РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ РІРµСЃР°
     int min_path = INT_MAX;
     do {
  
-        // сохранить текущий вес пути
+        // СЃРѕС…СЂР°РЅСЏРµРј С‚РµРєСѓС‰РёР№ РІРµСЃ РїСѓС‚Рё
         int current_pathweight = 0;
  
-        // вычисляем текущий вес пути
+        // РІС‹С‡РёСЃР»СЏРµРј С‚РµРєСѓС‰РёР№ РІРµСЃ РїСѓС‚Рё
         int k = s;
         for (int i = 0; i < vertex.size(); i++) {
             current_pathweight += graph[k][vertex[i]];
@@ -30,7 +30,7 @@ int travllingSalesmanProblem(int graph[][V], int s)
         }
         current_pathweight += graph[k][s];
  
-        // обновляем минимум
+        // РѕР±РЅРѕРІР»СЏРµРј РјРёРЅРёРјСѓРј
         min_path = min(min_path, current_pathweight);
  
     } while (
@@ -41,13 +41,13 @@ int travllingSalesmanProblem(int graph[][V], int s)
  
 int main()
 {
-    // матричное представление графа
+    // РјР°С‚СЂРёС‡РЅРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РіСЂР°С„Р°
     int graph[][V] = { { 0, 11, 31, 3 },
                        { 11, 0, 48, 25 },
                        { 31, 48, 0, 54 },
                        { 3, 25, 54, 0 } };
     int s = 0;
-    // ответ: 107
+    // РѕС‚РІРµС‚: 107
     cout << travllingSalesmanProblem(graph, s) << endl;
     return 0;
 }
